@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Reo Time - Resources & References</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #6b7280;
+            text-decoration: none;
+            margin-bottom: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: #1f2937;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .header .description {
+            color: #374151;
+            margin-top: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .card p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 32px;
+        }
+
+        .info-box strong {
+            color: #991b1b;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+
+        .item-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .item-card .subtitle-text {
+            color: #6b7280;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .item-card .preview {
+            color: #374151;
+            font-size: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .detail-card .section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .detail-card .section h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .detail-card .section p {
+            color: #374151;
+            line-height: 1.8;
+        }
+
+        .detail-card ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .detail-card ul li {
+            padding: 8px 0;
+            color: #374151;
+            display: flex;
+            align-items: start;
+        }
+
+        .detail-card ul li::before {
+            content: "•";
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .tab {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            color: #374151;
+            border: none;
+            font-size: 14px;
+        }
+
+        .tab:hover {
+            background: #fef2f2;
+        }
+
+        .tab.active {
+            background: #7c3aed;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: #7c3aed;
+            color: white;
+        }
+
+        th {
+            padding: 16px 24px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <!-- Home Page -->
+        <div id="page-home">
+            <div class="header">
+                <h1>Te Reo Time</h1>
+                <p class="subtitle">Resources & References</p>
+                <p class="description">Comprehensive cultural and linguistic information for the Te Reo Time app</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card" style="border-left-color: #dc2626;" onclick="showPage('whakatauki')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #dc2626;">
+                                <path
+                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h2>Whakataukī</h2>
+                                <p>60 Proverbs & Sayings</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #2563eb;" onclick="showPage('maramataka')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #2563eb;">
+                                <path
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h2>Maramataka</h2>
+                                <p>Lunar Calendar Guide</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #16a34a;" onclick="showPage('days')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #16a34a;">
+                                <path
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h2>Days of Week</h2>
+                                <p>Ngā Rā o te Wiki</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #7c3aed;" onclick="showPage('numbers')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #7c3aed;">
+                                <path
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                            <div>
+                                <h2>Number System</h2>
+                                <p>Ngā Tau Māori</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #eab308;" onclick="showPage('about')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #eab308;">
+                                <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h2>About & Culture</h2>
+                                <p>Background Information</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-left-color: #ec4899;" onclick="showPage('references')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                style="color: #ec4899;">
+                                <path
+                                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h2>References</h2>
+                                <p>Sources & Resources</p>
+                            </div>
+                        </div>
+                        <span style="color: #9ca3af;">›</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy & Legal card -->
+            <div class="card" style="border-left-color: #dc2626; margin-top: 1rem;"
+                onclick="window.location.href='privacy.html'">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <!-- Shield / legal icon -->
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            style="color: #dc2626;">
+                            <path d="M12 3l6 2v6.5c0 3.8-2.6 7.2-6 8.5-3.4-1.3-6-4.7-6-8.5V5l6-2z" />
+                            <path d="M10 11l2 2 4-4" />
+                        </svg>
+                        <div>
+                            <h2>Privacy & Legal</h2>
+                            <p>Kōrero Tūmataiti me ngā Ture</p>
+                        </div>
+                    </div>
+                    <span style="color: #9ca3af;">›</span>
+                </div>
+            </div>
+
+
+            <div class="info-box">
+                <p style="margin-top: 12px;">This app was created with aroha to support te reo Māori in everyday life.
+                    All information is compiled from educational resources and should be used as a learning tool. For
+                    deeper understanding, engage with local iwi and te reo learning programmes.</p>
+            </div>
+        </div>
+
+        <!-- Whakataukī Page -->
+        <div id="page-whakatauki" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #dc2626;">Whakataukī</h1>
+                <p class="subtitle">Traditional Māori proverbs and sayings - wisdom passed down through generations</p>
+            </div>
+
+            <input type="text" class="search-box" id="whakatauki-search" placeholder="Search proverbs..."
+                onkeyup="filterWhakatauki()">
+
+            <div id="whakatauki-list"></div>
+            <div id="whakatauki-detail" class="hidden"></div>
+        </div>
+
+        <!-- Maramataka Page -->
+        <div id="page-maramataka" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #2563eb;">Maramataka</h1>
+                <p class="subtitle">The Māori lunar calendar - traditional guidance for activities based on moon phases
+                </p>
+            </div>
+
+            <div
+                style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
+                <h3 style="font-weight: bold; color: #1e3a8a; margin-bottom: 8px;">Understanding Maramataka</h3>
+                <p style="color: #1e40af; line-height: 1.8;">
+                    The maramataka is more than just a calendar - it's a sophisticated system that connects lunar phases
+                    with natural rhythms, energy levels, and appropriate activities. Different iwi (tribes) have
+                    variations
+                    in their maramataka, but the core principles remain consistent: align activities with natural energy
+                    cycles
+                    for best results.
+                </p>
+            </div>
+
+            <div id="maramataka-list"></div>
+            <div id="maramataka-detail" class="hidden"></div>
+        </div>
+
+        <!-- Days Page -->
+        <div id="page-days" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #16a34a;">Ngā Rā o te Wiki</h1>
+                <p class="subtitle">Days of the week in te reo Māori</p>
+            </div>
+
+            <div
+                style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
+                <h3 style="font-weight: bold; color: #14532d; margin-bottom: 8px;">About the Seven-Day Week</h3>
+                <p style="color: #166534; line-height: 1.8;">
+                    The seven-day week was introduced to Māori culture through European contact and Christianity.
+                    Traditionally, Māori used the maramataka (lunar calendar) to organize time and activities.
+                    The adaptation of weekday names shows how te reo Māori evolved to incorporate new concepts
+                    while maintaining its linguistic structure.
+                </p>
+            </div>
+
+            <div id="days-list"></div>
+            <div id="days-detail" class="hidden"></div>
+        </div>
+
+        <!-- Numbers Page -->
+        <div id="page-numbers" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #7c3aed;">Ngā Tau Māori</h1>
+                <p class="subtitle">The Māori number system - understanding how numbers work in te reo</p>
+            </div>
+
+            <div
+                style="background: #faf5ff; border-left: 4px solid #7c3aed; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
+                <h3 style="font-weight: bold; color: #581c87; margin-bottom: 8px;">The Māori Counting System</h3>
+                <p style="color: #6b21a8; line-height: 1.8; margin-bottom: 12px;">
+                    The Māori number system is logical and consistent. It uses an additive pattern where larger
+                    numbers are built by combining smaller ones with 'mā' (and). For example, 25 is "rua tekau mā rima"
+                    (literally "two tens and five").
+                </p>
+                <p style="color: #6b21a8; line-height: 1.8;">
+                    This same system is used in the Te Reo Time app to tell the time in te reo Māori.
+                </p>
+            </div>
+
+            <div class="tabs" id="number-tabs"></div>
+            <div id="number-table"></div>
+
+            <div
+                style="margin-top: 32px; background: #faf5ff; border-left: 4px solid #7c3aed; padding: 24px; border-radius: 8px;">
+                <h3 style="font-weight: bold; color: #581c87; margin-bottom: 12px;">Time-Telling Examples</h3>
+                <div style="color: #6b21a8;">
+                    <p style="margin-bottom: 8px;"><strong>1:00</strong> - Ko te tahi karaka (It is one o'clock)</p>
+                    <p style="margin-bottom: 8px;"><strong>2:15</strong> - Ko te tekau mā rima meneti i te rua karaka
+                        (15 minutes past 2 o'clock)</p>
+                    <p style="margin-bottom: 8px;"><strong>3:30</strong> - Ko te toru tekau meneti i te toru karaka (30
+                        minutes past 3 o'clock)</p>
+                    <p><strong>4:45</strong> - Ko te tekau mā rima meneti ki te rima karaka (15 minutes to 5 o'clock)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="page-about" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #eab308;">About Te Reo Māori</h1>
+                <p class="subtitle">Understanding the language and culture behind the app</p>
+            </div>
+
+            <div id="about-content"></div>
+        </div>
+
+        <!-- References Page -->
+        <div id="page-references" class="hidden">
+            <span class="back-btn" onclick="showPage('home')">← Back to home</span>
+
+            <div class="header">
+                <h1 style="color: #ec4899;">References & Resources</h1>
+                <p class="subtitle">Sources, acknowledgments, and further learning resources</p>
+            </div>
+
+            <div id="references-content"></div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

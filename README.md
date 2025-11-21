@@ -27,4 +27,5 @@ Assets or future updates may be added here as the app evolves.
 When GitHub Pages is enabled in this repo, it will be published at:
 
 ```text
-https://<your-username>.github.io/<repo-name>/
+https://github.com/logan-poole/TeReoTime
+

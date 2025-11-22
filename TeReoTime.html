@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Reo Time - Learn Māori Time, Proverbs & Lunar Calendar</title>
+    <meta name="description" content="Free educational resources for te reo Māori: 60 whakataukī, maramataka lunar calendar, time-telling, and cultural knowledge.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #dc2626;
+            --primary-dark: #991b1b;
+            --accent: #16a34a;
+            --accent-light: #22c55e;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg: #0f172a;
+            --bg-alt: #1e293b;
+            --card: #1e293b;
+            --border: #334155;
+            --text: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .theme-toggle {
+            background: var(--bg-alt);
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 60px 24px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        /* RESOURCE CARDS */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .resource-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .resource-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .resource-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .resource-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .resource-card .count {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        /* SEARCH BOX */
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+            background: var(--card);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+        }
+
+        /* ITEM LIST */
+        .item-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .item:hover {
+            border-left-color: var(--accent);
+            background: var(--bg-alt);
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .item .english {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+
+        .item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* DETAIL VIEW */
+        .detail-view {
+            display: none;
+        }
+
+        .detail-view.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .detail-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .detail-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .detail-section {
+            margin-top: 32px;
+        }
+
+        .detail-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .detail-section p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .detail-section ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .detail-section ul li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .detail-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 12px;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateX(-4px);
+        }
+
+        /* MOON PHASE DISPLAY */
+        .moon-phase-current {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid rgba(37, 99, 235, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .moon-phase-current .moon-icon {
+            font-size: 4rem;
+            margin-bottom: 12px;
+        }
+
+        .moon-phase-current h3 {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .moon-phase-current p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        thead {
+            background: var(--bg-alt);
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:hover {
+            background: var(--bg-alt);
+        }
+
+        td:first-child {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .badge-good {
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--accent);
+        }
+
+        .badge-avoid {
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--primary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-card {
+                padding: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Te Reo Time</h1>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">🌙</button>
+    </nav>
+
+    <section class="hero">
+        <h1>Learn Te Reo Māori</h1>
+        <p>Free resources for whakataukī, maramataka, time-telling, and cultural knowledge</p>
+    </section>
+
+    <div class="container">
+        <!-- HOME -->
+        <div id="home" class="content-section active">
+            <div class="resources-grid">
+                <div class="resource-card" onclick="showSection('whakatauki')">
+                    <span class="icon">💭</span>
+                    <h3>Whakataukī</h3>
+                    <p>Traditional Māori proverbs and sayings with deep meanings</p>
+                    <span class="count">60 Proverbs</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('maramataka')">
+                    <span class="icon">🌙</span>
+                    <h3>Maramataka</h3>
+                    <p>Lunar calendar with phases, activities, and guidance</p>
+                    <span class="count">8 Phases</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('days')">
+                    <span class="icon">📅</span>
+                    <h3>Days of Week</h3>
+                    <p>Ngā Rā o te Wiki with origins and meanings</p>
+                    <span class="count">7 Days</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('numbers')">
+                    <span class="icon">🔢</span>
+                    <h3>Numbers</h3>
+                    <p>Complete Māori number system with examples</p>
+                    <span class="count">100+ Numbers</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('about')">
+                    <span class="icon">🌏</span>
+                    <h3>About & Culture</h3>
+                    <p>Language history and cultural context</p>
+                    <span class="count">Learn More</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('references')">
+                    <span class="icon">📚</span>
+                    <h3>References</h3>
+                    <p>Sources and further learning resources</p>
+                    <span class="count">Resources</span>
+                </div>
+
+                <div class="resource-card" onclick="showSection('privacy')">
+                    <span class="icon">🔒</span>
+                    <h3>Privacy & Legal</h3>
+                    <p>How we protect your data and legal information</p>
+                    <span class="count">Info</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAKATAUKĪ -->
+        <div id="whakatauki" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>Whakataukī</h2>
+                <p class="section-desc">60 traditional Māori proverbs containing wisdom passed down through generations</p>
+            </div>
+            
+            <input type="text" class="search-box" id="whakatauki-search" placeholder="Search proverbs..." oninput="filterWhakatauki()">
+            
+            <div id="whakatauki-list" class="item-list"></div>
+            <div id="whakatauki-detail" class="detail-view"></div>
+        </div>
+
+        <!-- MARAMATAKA -->
+        <div id="maramataka" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>Maramataka</h2>
+                <p class="section-desc">The ancient Māori lunar calendar - 8 moon phases guiding activities and spiritual alignment</p>
+            </div>
+
+            <div id="current-moon-phase"></div>
+            
+            <div id="maramataka-list" class="item-list"></div>
+            <div id="maramataka-detail" class="detail-view"></div>
+        </div>
+
+        <!-- DAYS -->
+        <div id="days" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>Ngā Rā o te Wiki</h2>
+                <p class="section-desc">Days of the week in te reo Māori with origins and traditional context</p>
+            </div>
+            
+            <div id="days-list" class="item-list"></div>
+            <div id="days-detail" class="detail-view"></div>
+        </div>
+
+        <!-- NUMBERS -->
+        <div id="numbers" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>Ngā Tau Māori</h2>
+                <p class="section-desc">The logical Māori number system - how numbers are built and combined</p>
+            </div>
+            
+            <div id="numbers-content"></div>
+        </div>
+
+        <!-- ABOUT -->
+        <div id="about" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>About Te Reo Māori</h2>
+            </div>
+            
+            <div id="about-content"></div>
+        </div>
+
+        <!-- REFERENCES -->
+        <div id="references" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>References & Resources</h2>
+            </div>
+            
+            <div id="references-content"></div>
+        </div>
+
+        <!-- PRIVACY & LEGAL -->
+        <div id="privacy" class="content-section">
+            <button class="back-btn" onclick="showSection('home')">← Back to Home</button>
+            
+            <div class="section-header">
+                <h2>Privacy & Legal</h2>
+                <p class="section-desc">How we protect your data, respect Māori culture, and legal information</p>
+            </div>
+            
+            <div id="privacy-content"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Te Reo Time • Created with aroha in Aotearoa New Zealand</p>
+        <p style="margin-top: 12px; font-size: 0.9rem;">
+            <a href="#" onclick="showSection('privacy'); return false;">Privacy & Legal</a> • 
+            <a href="mailto:hconmem@gmail.com">Contact</a>
+        </p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        // Theme Management
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const isDark = document.body.classList.contains('dark-mode');
+            document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            updateThemeIcon();
+            loadAllContent();
+        });
+
+        // Navigation
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionName).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            
+            // Load content when section is shown
+            if (sectionName === 'maramataka') {
+                showCurrentMoonPhase();
+            }
+        }
+
+        // Load All Content
+        function loadAllContent() {
+            loadWhakatauki();
+            loadMaramataka();
+            loadDays();
+            loadNumbers();
+            loadAbout();
+            loadReferences();
+            loadPrivacy();
+        }
+
+        // WHAKATAUKĪ
+        function loadWhakatauki() {
+            const list = document.getElementById('whakatauki-list');
+            list.innerHTML = DATA.whakatauki.map((w, i) => `
+                <div class="item" onclick="showWhakataukiDetail(${i})">
+                    <h4>${w.maori}</h4>
+                    <div class="english">"${w.english}"</div>
+                    <p>${w.meaning.substring(0, 150)}...</p>
+                </div>
+            `).join('');
+        }
+
+        function showWhakataukiDetail(index) {
+            const w = DATA.whakatauki[index];
+            const list = document.getElementById('whakatauki-list');
+            const detail = document.getElementById('whakatauki-detail');
+            
+            list.classList.add('hidden');
+            detail.classList.remove('hidden');
+            detail.classList.add('active');
+            
+            detail.innerHTML = `
+                <button class="back-btn" onclick="hideWhakataukiDetail()">← Back to All Proverbs</button>
+                <div class="detail-card">
+                    <h2>${w.maori}</h2>
+                    <p style="font-size: 1.3rem; font-style: italic; color: var(--text-muted); margin-bottom: 32px;">
+                        "${w.english}"
+                    </p>
+                    <div class="detail-section">
+                        <h3>Meaning</h3>
+                        <p>${w.meaning}</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Context & Usage</h3>
+                        <p>${w.context}</p>
+                    </div>
+                </div>
+            `;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function hideWhakataukiDetail() {
+            document.getElementById('whakatauki-list').classList.remove('hidden');
+            document.getElementById('whakatauki-detail').classList.add('hidden');
+        }
+
+        function filterWhakatauki() {
+            const search = document.getElementById('whakatauki-search').value.toLowerCase();
+            const filtered = DATA.whakatauki.filter(w => 
+                w.maori.toLowerCase().includes(search) ||
+                w.english.toLowerCase().includes(search) ||
+                w.meaning.toLowerCase().includes(search)
+            );
+            
+            const list = document.getElementById('whakatauki-list');
+            if (filtered.length === 0) {
+                list.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--text-muted);">No proverbs found</p>';
+                return;
+            }
+            
+            list.innerHTML = filtered.map((w) => {
+                const originalIndex = DATA.whakatauki.indexOf(w);
+                return `
+                    <div class="item" onclick="showWhakataukiDetail(${originalIndex})">
+                        <h4>${w.maori}</h4>
+                        <div class="english">"${w.english}"</div>
+                        <p>${w.meaning.substring(0, 150)}...</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // MARAMATAKA
+        function showCurrentMoonPhase() {
+            const day = new Date().getDate();
+            let currentPhase = DATA.maramataka[0];
+            
+            for (let phase of DATA.maramataka) {
+                const [start, end] = phase.days.split('-').map(Number);
+                if (day >= start && day <= (end || start)) {
+                    currentPhase = phase;
+                    break;
+                }
+            }
+            
+            document.getElementById('current-moon-phase').innerHTML = `
+                <div class="moon-phase-current">
+                    <div class="moon-icon">${currentPhase.moon}</div>
+                    <h3>Current Phase: ${currentPhase.phase}</h3>
+                    <p>Today (Day ${day}) • ${currentPhase.energy}</p>
+                </div>
+            `;
+        }
+
+        function loadMaramataka() {
+            const list = document.getElementById('maramataka-list');
+            list.innerHTML = DATA.maramataka.map((phase, i) => `
+                <div class="item" onclick="showMaramatakaDetail(${i})">
+                    <div style="display: flex; align-items: start; gap: 16px;">
+                        <div style="font-size: 2.5rem;">${phase.moon}</div>
+                        <div style="flex: 1;">
+                            <h4>${phase.phase}</h4>
+                            <div class="english">Days ${phase.days} • ${phase.type}</div>
+                            <p>${phase.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showMaramatakaDetail(index) {
+            const phase = DATA.maramataka[index];
+            const list = document.getElementById('maramataka-list');
+            const detail = document.getElementById('maramataka-detail');
+            
+            list.classList.add('hidden');
+            detail.classList.remove('hidden');
+            detail.classList.add('active');
+            
+            detail.innerHTML = `
+                <button class="back-btn" onclick="hideMaramatakaDetail()">← Back to All Phases</button>
+                <div class="detail-card">
+                    <div style="text-align: center; margin-bottom: 32px;">
+                        <div style="font-size: 5rem; margin-bottom: 16px;">${phase.moon}</div>
+                        <h2>${phase.phase}</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem;">Days ${phase.days} • ${phase.type}</p>
+                        <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">${phase.energy}</span>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Description</h3>
+                        <p>${phase.description}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Māori Significance</h3>
+                        <p>${phase.significance}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3 style="color: var(--accent);">✅ Favorable Activities</h3>
+                        <ul>
+                            ${phase.good.map(activity => `<li>${activity}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3 style="color: var(--primary);">❌ Activities to Avoid</h3>
+                        <ul>
+                            ${phase.avoid.map(activity => `<li>${activity}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-section" style="background: var(--bg-alt); padding: 24px; border-radius: 8px; margin-top: 32px;">
+                        <h3>Traditional Practice</h3>
+                        <p>${phase.traditional}</p>
+                    </div>
+                </div>
+            `;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function hideMaramatakaDetail() {
+            document.getElementById('maramataka-list').classList.remove('hidden');
+            document.getElementById('maramataka-detail').classList.add('hidden');
+            showCurrentMoonPhase();
+        }
+
+        // DAYS
+        function loadDays() {
+            const list = document.getElementById('days-list');
+            list.innerHTML = DATA.days.map((day, i) => `
+                <div class="item" onclick="showDaysDetail(${i})">
+                    <h4>${day.maori}</h4>
+                    <div class="english">${day.english}</div>
+                    <p>${day.meaning}</p>
+                </div>
+            `).join('');
+        }
+
+        function showDaysDetail(index) {
+            const day = DATA.days[index];
+            const list = document.getElementById('days-list');
+            const detail = document.getElementById('days-detail');
+            
+            list.classList.add('hidden');
+            detail.classList.remove('hidden');
+            detail.classList.add('active');
+            
+            detail.innerHTML = `
+                <button class="back-btn" onclick="hideDaysDetail()">← Back to All Days</button>
+                <div class="detail-card">
+                    <h2>${day.maori}</h2>
+                    <p style="font-size: 1.3rem; color: var(--text-muted); margin-bottom: 32px;">${day.english}</p>
+                    
+                    <div class="detail-section">
+                        <h3>Origin</h3>
+                        <p>${day.origin}</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Meaning</h3>
+                        <p>${day.meaning}</p>
+                    </div>
+                    
+                    <div class="detail-section" style="background: var(--bg-alt); padding: 24px; border-radius: 8px; margin-top: 32px;">
+                        <h3>Traditional Context</h3>
+                        <p>${day.traditional}</p>
+                    </div>
+                </div>
+            `;
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function hideDaysDetail() {
+            document.getElementById('days-list').classList.remove('hidden');
+            document.getElementById('days-detail').classList.add('hidden');
+        }
+
+        // NUMBERS
+        function loadNumbers() {
+            const content = document.getElementById('numbers-content');
+            content.innerHTML = `
+                <div style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text);">Basic Numbers (0-10)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Te Reo Māori</th>
+                                <th>Meaning</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${DATA.numbers.basic.map(num => `
+                                <tr>
+                                    <td>${num.number}</td>
+                                    <td style="font-weight: 600;">${num.maori}</td>
+                                    <td>${num.meaning}</td>
+                                    <td style="font-size: 0.9rem;">${num.notes}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text);">Teens (11-19)</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px;">Pattern: tekau mā + number (ten and...)</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Te Reo Māori</th>
+                                <th>Meaning</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${DATA.numbers.teens.map(num => `
+                                <tr>
+                                    <td>${num.number}</td>
+                                    <td style="font-weight: 600;">${num.maori}</td>
+                                    <td>${num.meaning}</td>
+                                    <td style="font-size: 0.9rem;">${num.notes}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text);">Tens (20-90)</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px;">Pattern: number + tekau (multiply by ten)</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Te Reo Māori</th>
+                                <th>Meaning</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${DATA.numbers.tens.map(num => `
+                                <tr>
+                                    <td>${num.number}</td>
+                                    <td style="font-weight: 600;">${num.maori}</td>
+                                    <td>${num.meaning}</td>
+                                    <td style="font-size: 0.9rem;">${num.notes}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text);">Hundreds & Thousands</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Te Reo Māori</th>
+                                <th>Meaning</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${DATA.numbers.hundreds.map(num => `
+                                <tr>
+                                    <td>${num.number}</td>
+                                    <td style="font-weight: 600;">${num.maori}</td>
+                                    <td>${num.meaning}</td>
+                                    <td style="font-size: 0.9rem;">${num.notes}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text);">Examples - Building Complex Numbers</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 16px;">Māori numbers are built logically by combining basic elements</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Te Reo Māori</th>
+                                <th>Meaning</th>
+                                <th>Construction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${DATA.numbers.examples.map(num => `
+                                <tr>
+                                    <td>${num.number}</td>
+                                    <td style="font-weight: 600;">${num.maori}</td>
+                                    <td>${num.meaning}</td>
+                                    <td style="font-size: 0.9rem;">${num.construction}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // ABOUT
+        function loadAbout() {
+            document.getElementById('about-content').innerHTML = `
+                <div class="detail-card">
+                    <h2 style="color: #eab308;">The Language</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        Te reo Māori is the indigenous language of Aotearoa (New Zealand). It is a Polynesian language, 
+                        closely related to other Pacific languages like Hawaiian, Samoan, and Tahitian. The language 
+                        nearly disappeared in the 20th century due to colonization and government policies that 
+                        discouraged its use, particularly in schools.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        Since the 1970s, there has been a significant revival movement, known as "te reo Māori revival" 
+                        or "Māori Renaissance." The language was made an official language of New Zealand in 1987, 
+                        alongside New Zealand Sign Language.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Today, te reo Māori is taught in schools, used in government, broadcast on television and radio, 
+                        and increasingly integrated into everyday New Zealand life. Apps like Te Reo Time help make the 
+                        language accessible and present in daily activities.
+                    </p>
+                </div>
+                
+                <div class="detail-card">
+                    <h2 style="color: #eab308;">Māori Worldview</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        Māori culture has a holistic worldview where everything is interconnected. This is reflected in 
+                        core concepts:
+                    </p>
+                    <div class="detail-section">
+                        <ul>
+                            <li><strong>Whakapapa</strong> - genealogy and connections that link all things, from gods to people to natural elements</li>
+                            <li><strong>Mana</strong> - prestige, authority, and spiritual power that comes from ancestors and actions</li>
+                            <li><strong>Tapu</strong> - sacredness and restrictions that maintain spiritual safety and respect</li>
+                            <li><strong>Noa</strong> - the ordinary or unrestricted, the balance to tapu</li>
+                            <li><strong>Kaitiakitanga</strong> - guardianship and protection of the environment and cultural treasures</li>
+                            <li><strong>Manaakitanga</strong> - hospitality, kindness, and caring for others</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="detail-card">
+                    <h2 style="color: #eab308;">The Maramataka Tradition</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        The maramataka is a sophisticated lunar calendar system used by Māori for centuries. Unlike 
+                        the solar Gregorian calendar used in Western cultures, the maramataka tracks the moon's phases 
+                        and connects them to natural rhythms and energy cycles.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        Different iwi (tribes) and regions have variations in their maramataka, as the system was 
+                        adapted to local conditions, food sources, and environmental patterns. However, core principles 
+                        remain consistent across variations.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        The maramataka guided decisions about planting, fishing, hunting, construction, ceremonies, 
+                        and even warfare. It recognized that certain times are more favorable for specific activities 
+                        based on moon phases and natural energy flows. This wisdom is being revitalized today as people 
+                        recognize its value for sustainable living and wellbeing.
+                    </p>
+                </div>
+            `;
+        }
+
+        // REFERENCES
+        function loadReferences() {
+            document.getElementById('references-content').innerHTML = `
+                <div class="detail-card">
+                    <h2 style="color: #ec4899;">Primary Sources</h2>
+                    <div style="color: var(--text-muted); line-height: 1.8;">
+                        <p style="margin-bottom: 16px;"><strong>Māori Dictionary</strong> - <a href="https://maoridictionary.co.nz" target="_blank" style="color: var(--accent); text-decoration: none;">maoridictionary.co.nz</a></p>
+                        <p style="font-size: 0.95rem; margin-left: 16px; margin-bottom: 32px;">
+                            Comprehensive online dictionary for te reo Māori, including examples and audio pronunciations.
+                        </p>
+
+                        <p style="margin-bottom: 16px;"><strong>Te Aka Māori Dictionary</strong></p>
+                        <p style="font-size: 0.95rem; margin-left: 16px; margin-bottom: 32px;">
+                            Academic dictionary resource with detailed linguistic information.
+                        </p>
+
+                        <p style="margin-bottom: 16px;"><strong>Te Taura Whiri i te Reo Māori (Māori Language Commission)</strong></p>
+                        <p style="font-size: 0.95rem; margin-left: 16px;">
+                            Official body responsible for Māori language policy and standards.
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="background: #fef2f2; border-left: 4px solid var(--primary); padding: 32px; border-radius: 8px; margin-bottom: 24px;">
+                    <h3 style="font-weight: 700; color: var(--primary-dark); margin-bottom: 12px;">Important Note</h3>
+                    <p style="color: var(--primary-dark); line-height: 1.8; margin-bottom: 16px;">
+                        While this app provides educational information about te reo Māori and Māori cultural concepts, 
+                        it should be used as a supplementary learning tool, not a definitive cultural authority.
+                    </p>
+                    <p style="color: var(--primary-dark); line-height: 1.8; margin-bottom: 16px;">
+                        Māori knowledge is diverse and varies between iwi, hapū, and whānau. For authoritative cultural 
+                        information, always consult with local kaumātua (elders), iwi authorities, or accredited cultural 
+                        educators.
+                    </p>
+                    <p style="color: var(--primary-dark); line-height: 1.8;">
+                        The developer (Logan Poole) has compiled this information respectfully from publicly available 
+                        educational resources with the intention of supporting te reo Māori revitalization and cultural 
+                        appreciation.
+                    </p>
+                </div>
+                
+                <div class="detail-card">
+                    <h2 style="color: #ec4899;">Developer Acknowledgments</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        Ko Logan Poole tōku ingoa. I am from Rotorua and am of Ngāi Tūhoe, Tainui, and Te Arawa descent. 
+                        This app was created as a passion project to support te reo Māori in everyday modern life.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 16px;">
+                        While I have done my best to ensure accuracy and respect in presenting this cultural information, 
+                        I acknowledge that I am on a learning journey myself. Any errors or oversights are unintentional, 
+                        and I welcome respectful feedback for improvements.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        This app is offered freely with aroha to support the revitalization of te reo Māori and to help 
+                        make the language more present in daily life. Kia kaha te reo Māori - may the Māori language be strong!
+                    </p>
+                </div>
+            `;
+        }
+
+        // PRIVACY & LEGAL
+        function loadPrivacy() {
+            document.getElementById('privacy-content').innerHTML = `
+                <div style="background: rgba(22, 163, 74, 0.1); border-left: 4px solid var(--accent); padding: 32px; border-radius: 8px; margin-bottom: 32px;">
+                    <h3 style="font-weight: 700; color: var(--accent); margin-bottom: 12px; font-size: 1.3rem;">Quick Summary</h3>
+                    <p style="color: var(--text); line-height: 1.8; margin-bottom: 16px;">
+                        <strong>Te Reo Time</strong> is a passion project created to support te reo Māori in everyday life. 
+                        This website is designed as a safe, educational tool.
+                    </p>
+                    <ul style="list-style: none; margin: 16px 0;">
+                        <li style="padding: 8px 0; color: var(--text);">✓ No logins or user accounts required</li>
+                        <li style="padding: 8px 0; color: var(--text);">✓ No collection of names, emails, or contact details</li>
+                        <li style="padding: 8px 0; color: var(--text);">✓ No advertisements or data selling</li>
+                        <li style="padding: 8px 0; color: var(--text);">✓ Settings stored on your device only</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Privacy Policy</h2>
+                    
+                    <div class="detail-section">
+                        <h3>What We Don't Collect</h3>
+                        <p>This website does not ask for or collect:</p>
+                        <ul>
+                            <li>Names, email addresses, phone numbers, or postal addresses</li>
+                            <li>Payment or credit card information</li>
+                            <li>Profile photos or personal media</li>
+                            <li>Contact lists or social media data</li>
+                            <li>Precise GPS location</li>
+                        </ul>
+                        <p style="margin-top: 16px;">The site runs in your browser. Your theme preference (light/dark mode) is stored locally on your device only.</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Browser & Technical Data</h3>
+                        <p>Your web browser automatically sends standard information when you visit any website, such as your IP address and browser type. This is normal web behavior and not specifically collected by Te Reo Time.</p>
+                        <p style="margin-top: 16px;">We may use basic privacy-friendly analytics in the future to understand page views and improve the site, but no personal profiles are created.</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Cookies & Storage</h3>
+                        <p>This site uses browser localStorage only to remember your theme preference (dark/light mode). No tracking cookies or third-party cookies are used.</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Children & Tamariki</h3>
+                        <p>Te Reo Time is designed to be child-friendly and safe for tamariki learning te reo Māori. The site:</p>
+                        <ul>
+                            <li>Does not require children to enter personal information</li>
+                            <li>Contains no advertisements or external links to inappropriate content</li>
+                            <li>Has no social media sharing features</li>
+                        </ul>
+                        <p style="margin-top: 16px;">Parents, caregivers, and kaiako are encouraged to supervise children's device use.</p>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Your Privacy Rights (Aotearoa New Zealand)</h3>
+                        <p>Under the principles of the New Zealand Privacy Act 2020, you have rights regarding your personal information. Since this site doesn't collect personal information, there's nothing to access or correct.</p>
+                        <p style="margin-top: 16px;">If this changes in the future, clear options will be provided.</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Cultural Care & Accuracy</h2>
+                    
+                    <div class="detail-section">
+                        <p>Te Reo Time has been created with aroha and respect for te reo Māori, tikanga, and mātauranga Māori. However:</p>
+                        <ul>
+                            <li>Content may not reflect every iwi or hapū variation</li>
+                            <li>Some explanations are simplified for learners</li>
+                            <li>There may be mistakes or areas that can be improved</li>
+                        </ul>
+                        <p style="margin-top: 16px;"><strong>Important:</strong> Users are encouraged to seek guidance from local kaumātua (elders), iwi authorities, or accredited cultural educators for authoritative cultural information. Use Te Reo Time as a supplementary learning tool, not a definitive cultural authority.</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Legal Disclaimer</h2>
+                    
+                    <div class="detail-section">
+                        <p>Te Reo Time is an educational tool provided on an <strong>"as is"</strong> basis. While care has been taken to ensure accuracy:</p>
+                        <ul>
+                            <li>Content may not be complete, up-to-date, or error-free</li>
+                            <li>The site may have interruptions or technical issues</li>
+                            <li>Content may not meet every school, kura, or whānau's specific requirements</li>
+                        </ul>
+                        <p style="margin-top: 16px;">To the maximum extent allowed by law in New Zealand, the creator is not liable for indirect or consequential loss resulting from using or being unable to use the site.</p>
+                        <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">This disclaimer does not limit your rights under the Consumer Guarantees Act 1993 where it applies.</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Copyright & Licence</h2>
+                    
+                    <div class="detail-section">
+                        <p><strong>Copyright © 2025 Logan Poole. All rights reserved.</strong></p>
+                        
+                        <h3 style="margin-top: 24px;">Personal & Educational Use</h3>
+                        <p>You may use Te Reo Time for personal, home, classroom, and non-commercial educational use without needing to pay a fee or ask permission.</p>
+                        
+                        <h3 style="margin-top: 24px;">Commercial Use</h3>
+                        <p>Commercial or for-profit use (such as integrating this content into a paid app, service, or product) requires <strong>express written permission</strong> and a separate licence agreement.</p>
+                        <p style="margin-top: 16px;">Contact: <a href="mailto:hconmem@gmail.com" style="color: var(--accent);">hconmem@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h2>Contact & Feedback</h2>
+                    
+                    <div class="detail-section">
+                        <p>If you have questions about privacy, cultural concerns, or legal matters relating to Te Reo Time:</p>
+                        <ul>
+                            <li><strong>Name:</strong> Logan Poole</li>
+                            <li><strong>Email:</strong> <a href="mailto:hconmem@gmail.com" style="color: var(--accent);">hconmem@gmail.com</a></li>
+                            <li><strong>Location:</strong> Rotorua, Aotearoa New Zealand</li>
+                            <li><strong>Iwi:</strong> Ngāi Tūhoe, Tainui, Te Arawa</li>
+                        </ul>
+                        <p style="margin-top: 16px;">Feedback from whānau, kaiako, and communities is welcome and appreciated. Kia ora!</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-alt); padding: 24px; border-radius: 8px; margin-top: 32px; border-left: 3px solid var(--border);">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                        <strong>Last Updated:</strong> November 22, 2025<br>
+                        This page may be updated as the site evolves. Significant changes will be clearly noted.
+                    </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

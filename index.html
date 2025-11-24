@@ -105,6 +105,39 @@
             margin: 0 auto;
         }
 
+        .hero-actions {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-btn span.download-icon {
+            font-size: 1.1rem;
+        }
+
         /* CONTAINER */
         .container {
             max-width: 1200px;
@@ -519,6 +552,16 @@
     <section class="hero">
         <h1>Learn Te Reo Māori</h1>
         <p>Free resources for whakataukī, maramataka, time-telling, and cultural knowledge</p>
+        <div class="hero-actions">
+            <a class="download-btn"
+               href="https://github.com/logan-poole/TeReoTime/raw/refs/heads/main/Te%20Reo%20Time/TeReoTime.apk"
+               download
+               target="_blank"
+               rel="noopener noreferrer">
+                <span class="download-icon">📲</span>
+                <span>Download Android App (APK)</span>
+            </a>
+        </div>
     </section>
 
     <div class="container">

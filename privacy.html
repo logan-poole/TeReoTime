@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Reo Time — Privacy Policy & Terms</title>
+    <meta name="description" content="Te Reo Time legal information: privacy policy, terms of use, and disclaimers for the Te Reo Time educational app.">
+    <meta name="author" content="Te Reo Time Development Team">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #dc2626;
+            --primary-dark: #b91c1c;
+            --primary-glow: rgba(220, 38, 38, 0.4);
+            --accent: #16a34a;
+            --accent-soft: #dcfce7;
+            --purple: #a855f7;
+            --purple-dark: #7e22ce;
+            --cyan: #06b6d4;
+            --bg: #0a0a0f;
+            --bg-alt: #020617;
+            --card: #0f1419;
+            --card-hover: #1a1f28;
+            --border: #1e293b;
+            --border-glow: rgba(168, 85, 247, 0.3);
+            --text: #f1f5f9;
+            --text-soft: #cbd5e1;
+            --muted: #64748b;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.9);
+            --glow: 0 0 20px rgba(168, 85, 247, 0.4);
+            --radius-lg: 20px;
+            --radius-xl: 24px;
+            --radius-pill: 999px;
+            --max-width: 1200px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes slide-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #020617 50%, #0a0a0f 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px 60px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.08) 0%, transparent 50%);
+            animation: gradient-shift 20s ease infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .page {
+            width: 100%;
+            max-width: var(--max-width);
+            animation: fade-in-up 0.8s ease-out;
+        }
+
+        header {
+            margin-bottom: 40px;
+            animation: slide-in-left 0.6s ease-out;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.12), rgba(168, 85, 247, 0.12));
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #fecaca;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+            border-color: rgba(248, 113, 113, 0.6);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow:
+                0 0 0 4px rgba(34, 197, 94, 0.2),
+                0 0 10px rgba(34, 197, 94, 0.4);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 48px);
+            margin-top: 20px;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #f1f5f9, #a855f7, #06b6d4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 8s ease infinite;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: var(--text-soft);
+            max-width: 600px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .meta-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pill {
+            padding: 6px 12px;
+            border-radius: var(--radius-pill);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pill:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.15));
+            transform: translateY(-1px);
+        }
+
+        .layout {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 30px 16px 50px;
+            }
+
+            .layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            background: linear-gradient(145deg, rgba(15, 20, 25, 0.8), rgba(2, 6, 23, 0.8));
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 20px;
+            box-shadow: var(--shadow), 0 0 40px rgba(168, 85, 247, 0.1);
+            animation: slide-in-right 0.6s ease-out;
+            transition: all 0.4s ease;
+        }
+
+        .sidebar:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: var(--shadow-lg), 0 0 60px rgba(168, 85, 247, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .sidebar h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .nav-list a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            font-size: 14px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            color: var(--text-soft);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-list a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-list a:hover::before {
+            left: 100%;
+        }
+
+        .nav-list a span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1;
+        }
+
+        .nav-list a small {
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            z-index: 1;
+        }
+
+        .nav-list a:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(6, 182, 212, 0.08));
+            transform: translateX(4px);
+            color: var(--text);
+        }
+
+        .nav-list a.active {
+            border-color: rgba(248, 113, 113, 0.8);
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(168, 85, 247, 0.15));
+            color: #fecaca;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+        }
+
+        .nav-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .nav-list a:hover .nav-dot {
+            background: var(--purple);
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+        }
+
+        .nav-list a.active .nav-dot {
+            background: linear-gradient(135deg, #f97373, #dc2626);
+            box-shadow:
+                0 0 0 3px rgba(248, 113, 113, 0.3),
+                0 0 12px rgba(220, 38, 38, 0.5);
+        }
+
+        .sidebar-footer {
+            padding-top: 16px;
+            border-top: 1px dashed rgba(168, 85, 247, 0.3);
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-soft);
+            font-size: 13px;
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.1));
+            color: var(--text);
+            transform: translateX(-3px);
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(15, 20, 25, 0.95), rgba(2, 6, 23, 0.95));
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fade-in-up 0.6s ease-out backwards;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: var(--shadow-lg), 0 0 50px rgba(168, 85, 247, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card-title-block {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(5deg) scale(1.05);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .card-title {
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .card-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--muted);
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .badge-soft {
+            padding: 6px 12px;
+            border-radius: var(--radius-pill);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            font-size: 11px;
+            color: var(--text-soft);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .badge-soft {
+            border-color: rgba(168, 85, 247, 0.5);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.15));
+        }
+
+        .card-content {
+            font-size: 14px;
+            color: var(--text-soft);
+            line-height: 1.8;
+        }
+
+        .card-content p + p {
+            margin-top: 12px;
+        }
+
+        .card-content ul {
+            margin: 12px 0 0 22px;
+        }
+
+        .card-content li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 4px;
+        }
+
+        .card-content li::marker {
+            color: var(--purple);
+        }
+
+        .legal-heading {
+            font-size: 16px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .legal-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--purple));
+            transition: width 0.4s ease;
+        }
+
+        .card:hover .legal-heading::after {
+            width: 100%;
+        }
+
+        .legal-subheading {
+            font-size: 15px;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #fca5a5;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+
+        .code-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            font-size: 11px;
+            color: #c4b5fd;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        a[href^="http"] {
+            color: #93c5fd;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        a[href^="http"]:hover {
+            color: #60a5fa;
+            border-bottom-color: #60a5fa;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+
+            .card-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .card-header-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: rgba(168, 85, 247, 0.3);
+            color: var(--text);
+        }
+    </style>
+
+    <script>
+        // Scroll spy for sidebar links
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = [
+                { id: "privacy", link: "link-privacy" },
+                { id: "terms", link: "link-terms" },
+                { id: "disclaimer", link: "link-disclaimer" }
+            ];
+
+            const navLinks = new Map();
+            sections.forEach(s => {
+                const el = document.getElementById(s.link);
+                if (el) navLinks.set(s.id, el);
+            });
+
+            function setActive(id) {
+                navLinks.forEach((el, key) => {
+                    if (key === id) el.classList.add("active");
+                    else el.classList.remove("active");
+                });
+            }
+
+            function onScroll() {
+                let currentId = "privacy";
+                for (const s of sections) {
+                    const el = document.getElementById(s.id);
+                    if (!el) continue;
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= 140) {
+                        currentId = s.id;
+                    }
+                }
+                setActive(currentId);
+            }
+
+            document.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+        });
+    </script>
+</head>
+
+<body>
+<div class="page">
+    <header>
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Te Reo Time • Legal & Privacy
+        </div>
+        <h1>Privacy Policy, Terms &amp; Legal Information</h1>
+        <p class="subtitle">
+            This page explains how Te Reo Time handles your information, your rights as a user,
+            and the legal terms for using the app.
+        </p>
+        <div class="meta-row">
+            <span><span class="pill">Last updated: 3 December 2025</span></span>
+            <span>App: <strong>Te Reo Time</strong></span>
+            <span>Website: <strong>https://pinged.nz/TeReoTime/</strong></span>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Sidebar Nav -->
+        <aside class="sidebar">
+            <h2>Sections</h2>
+            <ul class="nav-list">
+                <li>
+                    <a href="#privacy" id="link-privacy" class="active">
+                        <span>
+                            <span class="nav-dot"></span>
+                            Privacy Policy
+                        </span>
+                        <small>Data &amp; permissions</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="#terms" id="link-terms">
+                        <span>
+                            <span class="nav-dot"></span>
+                            Terms of Use
+                        </span>
+                        <small>How you can use the app</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="#disclaimer" id="link-disclaimer">
+                        <span>
+                            <span class="nav-dot"></span>
+                            Cultural &amp; Legal Disclaimer
+                        </span>
+                        <small>Educational intent</small>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="https://pinged.nz/TeReoTime/" class="back-link">
+                    ← Back to Te Reo Time home
+                </a>
+                <div style="margin-top: 10px; font-size: 11px; color: var(--muted);">
+                    Questions? Email us:
+                    <br>
+                    <a class="email-link" href="mailto:tereotime@pinged.nz">
+                        tereotime@pinged.nz
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Privacy Policy -->
+            <section id="privacy" class="card">
+                <div class="card-header-row">
+                    <div class="card-title-block">
+                        <div class="card-icon">
+                            <!-- Shield icon -->
+                            <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+                                <path d="M12 3l7 3v6.5c0 3.5-2.5 6.8-7 8-4.5-1.2-7-4.5-7-8V6l7-3z" stroke-linejoin="round"/>
+                                <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="card-title">Privacy Policy</div>
+                            <div class="card-subtitle">How we handle your information</div>
+                        </div>
+                    </div>
+                    <div class="badge-soft">
+                        No account • No tracking • NZ-based
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <p>
+                        Te Reo Time (“the App”, “we”, “our”, “us”) is an educational app that helps users learn Māori
+                        time phrases, maramataka (lunar phases), whakataukī, and daily cultural insights. We respect
+                        your privacy and are committed to protecting your personal information.
+                    </p>
+
+                    <p class="legal-heading">1. Information We Collect</p>
+
+                    <p class="legal-subheading">1.1 Device &amp; App Information</p>
+                    <p>
+                        We may collect basic, non-identifying information automatically, such as:
+                    </p>
+                    <ul>
+                        <li>Device type</li>
+                        <li>Operating system version</li>
+                        <li>App version</li>
+                        <li>Anonymous usage analytics (if enabled)</li>
+                    </ul>
+                    <p>
+                        This information helps improve performance and fix bugs. It is not used to personally identify
+                        you.
+                    </p>
+
+                    <p class="legal-subheading">1.2 Location (Optional)</p>
+                    <p>
+                        If you enable location permissions, the App may use:
+                    </p>
+                    <ul>
+                        <li>Your approximate location to calculate sunrise/sunset times</li>
+                        <li>Your city/region to show more relevant time information</li>
+                    </ul>
+                    <p>
+                        Location data is <span class="highlight">only used on your device</span> and is not stored on
+                        our servers or shared with third parties.
+                    </p>
+
+                    <p class="legal-subheading">1.3 No Account Required</p>
+                    <p>
+                        Te Reo Time does <span class="highlight">not</span> require:
+                    </p>
+                    <ul>
+                        <li>Sign-in or registration</li>
+                        <li>Email address</li>
+                        <li>Name or phone number</li>
+                        <li>Any personally identifying information</li>
+                    </ul>
+                    <p>
+                        We do not maintain user accounts or profiles.
+                    </p>
+
+                    <p class="legal-subheading">1.4 Photos &amp; Media (If Used)</p>
+                    <p>
+                        If a feature allows you to choose images (for example, custom backgrounds), those images stay on
+                        your device and are not uploaded to our servers.
+                    </p>
+
+                    <p class="legal-heading">2. How We Use Your Data</p>
+                    <p>
+                        We only use the minimal data needed to:
+                    </p>
+                    <ul>
+                        <li>Display Māori time and maramataka information correctly</li>
+                        <li>Calculate sun and moon information (e.g., sunrise/sunset)</li>
+                        <li>Improve app stability and performance</li>
+                    </ul>
+                    <p>
+                        We do <span class="highlight">not</span> sell, trade, or rent your data to anyone.
+                    </p>
+
+                    <p class="legal-heading">3. Third-Party Services</p>
+                    <p>
+                        The App may connect to certain third-party services, for example:
+                    </p>
+                    <ul>
+                        <li>Weather or astronomical data providers</li>
+                        <li>Crash reporting or diagnostics via app stores</li>
+                    </ul>
+                    <p>
+                        These providers may collect anonymous usage data under their own privacy policies.
+                        Te Reo Time does not send them any personal information such as your name, email, or address.
+                    </p>
+
+                    <p class="legal-heading">4. Data Storage &amp; Security</p>
+                    <p>
+                        We do not store your personal data on our own servers.
+                        Any settings and preferences are stored locally on your device.
+                    </p>
+                    <p>
+                        We use standard security practices appropriate for a small, educational app, but no system can
+                        be guaranteed 100% secure.
+                    </p>
+
+                    <p class="legal-heading">5. Children’s Privacy</p>
+                    <p>
+                        Te Reo Time is safe and suitable for all ages. We intentionally do not collect personal
+                        information from children or adults. Because we do not collect identifiable data, there is
+                        nothing for us to sell, share, or track.
+                    </p>
+
+                    <p class="legal-heading">6. Your Choices &amp; Rights</p>
+                    <p>
+                        You can:
+                    </p>
+                    <ul>
+                        <li>Disable location access at any time through your device settings</li>
+                        <li>Uninstall the app, which removes all locally stored preferences</li>
+                        <li>Contact us if you have any privacy questions</li>
+                    </ul>
+                    <p>
+                        Since we do not maintain user accounts or central profiles, there is no stored personal data to
+                        request, export, or delete.
+                    </p>
+
+                    <p class="legal-heading">7. Changes to This Privacy Policy</p>
+                    <p>
+                        We may update this Privacy Policy from time to time. When we do, we will update the “Last
+                        updated” date at the top of this page. Significant changes may also be highlighted in the app or
+                        on the website at
+                        <a href="https://pinged.nz/TeReoTime/">https://pinged.nz/TeReoTime/</a>.
+                    </p>
+
+                    <p class="legal-heading">8. Contact Us</p>
+                    <p>
+                        If you have any questions about this Privacy Policy or how Te Reo Time handles information, you
+                        can contact:
+                    </p>
+                    <p>
+                        <strong>Te Reo Time – Privacy Enquiries</strong><br>
+                        Email:
+                        <a href="mailto:tereotime@pinged.nz">tereotime@pinged.nz</a><br>
+                        Website:
+                        <a href="https://pinged.nz/TeReoTime/">https://pinged.nz/TeReoTime/</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Terms of Use -->
+            <section id="terms" class="card">
+                <div class="card-header-row">
+                    <div class="card-title-block">
+                        <div class="card-icon">
+                            <!-- Document icon -->
+                            <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+                                <path d="M7 3h7l5 5v13H7z" stroke-linejoin="round"/>
+                                <path d="M14 3v5h5" stroke-linejoin="round"/>
+                                <path d="M10 13h6M10 17h3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="card-title">Terms of Use</div>
+                            <div class="card-subtitle">How you can use Te Reo Time</div>
+                        </div>
+                    </div>
+                    <div class="badge-soft">
+                        Jurisdiction: New Zealand Law
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <p>
+                        By downloading or using Te Reo Time, you agree to these Terms of Use.
+                        If you do not agree with these terms, please do not use the app.
+                    </p>
+
+                    <p class="legal-heading">1. Purpose of the App</p>
+                    <p>
+                        Te Reo Time is an educational tool that provides:
+                    </p>
+                    <ul>
+                        <li>Māori time expressions</li>
+                        <li>Maramataka (lunar phase) information</li>
+                        <li>Whakataukī and other cultural learning content</li>
+                        <li>Contextual information such as sun and moon positions, where available</li>
+                    </ul>
+                    <p>
+                        The App is intended for learning and cultural engagement. It does not replace professional,
+                        legal, navigational, or scientific advice.
+                    </p>
+
+                    <p class="legal-heading">2. Licence</p>
+                    <p>
+                        You are granted a personal, non-exclusive, non-transferable licence to install and use the App
+                        on your devices for non-commercial purposes.
+                    </p>
+                    <p>
+                        You may <span class="highlight">not</span>:
+                    </p>
+                    <ul>
+                        <li>Reverse engineer, decompile, or attempt to extract the source code</li>
+                        <li>Copy or reuse the app’s content, artwork, or data for commercial products</li>
+                        <li>Sell, sublicense, or distribute modified versions of the App</li>
+                    </ul>
+
+                    <p class="legal-heading">3. Acceptable Use</p>
+                    <p>
+                        You agree to use the App in a respectful and lawful way, including:
+                    </p>
+                    <ul>
+                        <li>Respecting Māori language and cultural content presented in the App</li>
+                        <li>Not misrepresenting the App’s content as official advice from any iwi, hapū, or organisation</li>
+                        <li>Not using the App for illegal purposes</li>
+                    </ul>
+
+                    <p class="legal-heading">4. Educational &amp; Cultural Context</p>
+                    <p>
+                        Māori language and maramataka knowledge can vary significantly between iwi, hapū, and rohe.
+                        The content in Te Reo Time is provided as a learning resource and does not claim to represent
+                        all traditions or interpretations.
+                    </p>
+
+                    <p class="legal-heading">5. No Warranty</p>
+                    <p>
+                        Te Reo Time is provided <span class="highlight">“as is”</span> without any guarantee or warranty
+                        of any kind, whether express or implied. We do not warrant that:
+                    </p>
+                    <ul>
+                        <li>The app will be error-free or always available</li>
+                        <li>All data (including time, lunar information, or weather integrations) will be perfectly accurate</li>
+                        <li>Any third-party services the App relies on will function without interruption</li>
+                    </ul>
+
+                    <p class="legal-heading">6. Limitation of Liability</p>
+                    <p>
+                        To the maximum extent permitted by New Zealand law, Te Reo Time, its developer, and any
+                        collaborators are not liable for any:
+                    </p>
+                    <ul>
+                        <li>Losses or damages arising from using or being unable to use the App</li>
+                        <li>Consequences of using information from the App for decisions or planning</li>
+                        <li>Issues arising from third-party service outages or changes</li>
+                    </ul>
+
+                    <p>
+                        You use the App at your own discretion and risk.
+                    </p>
+
+                    <p class="legal-heading">7. Changes, Updates &amp; Availability</p>
+                    <p>
+                        We may update, change, suspend, or discontinue parts of the App at any time, including changing
+                        features, updating content, or removing legacy versions. We are not obligated to maintain any
+                        particular feature or data source.
+                    </p>
+
+                    <p class="legal-heading">8. Termination</p>
+                    <p>
+                        We may restrict or end your use of the App if we reasonably believe you have breached these
+                        Terms, misused the app, or engaged in unlawful activity involving the App.
+                    </p>
+                    <p>
+                        You may terminate these Terms at any time by uninstalling the App from your devices.
+                    </p>
+
+                    <p class="legal-heading">9. Governing Law</p>
+                    <p>
+                        These Terms are governed by the laws of New Zealand. Any disputes relating to these Terms or
+                        your use of the App will be subject to the non-exclusive jurisdiction of the New Zealand courts.
+                    </p>
+
+                    <p class="legal-heading">10. Contact About These Terms</p>
+                    <p>
+                        For questions related to these Terms of Use, you can contact:
+                    </p>
+                    <p>
+                        <strong>Te Reo Time – Legal Enquiries</strong><br>
+                        Email:
+                        <a href="mailto:tereotime@pinged.nz">tereotime@pinged.nz</a><br>
+                        Website:
+                        <a href="https://pinged.nz/TeReoTime/">https://pinged.nz/TeReoTime/</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Disclaimer -->
+            <section id="disclaimer" class="card">
+                <div class="card-header-row">
+                    <div class="card-title-block">
+                        <div class="card-icon">
+                            <!-- Info icon -->
+                            <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 10v6" stroke-linecap="round"/>
+                                <path d="M12 8h.01" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="card-title">Cultural &amp; Legal Disclaimer</div>
+                            <div class="card-subtitle">Kia tika, kia ngākau māhaki</div>
+                        </div>
+                    </div>
+                    <div class="badge-soft">
+                        Educational resource • Not official advice
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <p class="legal-heading">1. Cultural Context</p>
+                    <p>
+                        Te Reo Time provides educational content based on public knowledge, research, and guidance from
+                        Māori language and cultural resources where possible. However:
+                    </p>
+                    <ul>
+                        <li>Māori language, maramataka, and tikanga vary between iwi, hapū, and rohe</li>
+                        <li>The App cannot represent every viewpoint, tradition, or variation</li>
+                        <li>Some phrasing or interpretations may differ from what is used in your local community</li>
+                    </ul>
+                    <p>
+                        For matters where cultural accuracy is critical, we encourage users to seek guidance from
+                        local Māori knowledge holders, kaumātua, and iwi/hapū authorities.
+                    </p>
+
+                    <p class="legal-heading">2. Educational Use Only</p>
+                    <p>
+                        The content in Te Reo Time is provided for:
+                    </p>
+                    <ul>
+                        <li>Language learning</li>
+                        <li>Cultural awareness and engagement</li>
+                        <li>Personal education and interest</li>
+                    </ul>
+                    <p>
+                        It is not intended as:
+                    </p>
+                    <ul>
+                        <li>Legal advice</li>
+                        <li>Professional cultural consultancy</li>
+                        <li>Scientific or navigational authority</li>
+                    </ul>
+
+                    <p class="legal-heading">3. Accuracy of Data</p>
+                    <p>
+                        While we aim for accuracy, certain data (e.g., sun and moon times, weather information, or
+                        calculated phases) may depend on third-party data sources and device settings (such as time
+                        zone, location, and daylight savings).
+                    </p>
+                    <p>
+                        We cannot guarantee this information will always be correct, up to date, or suitable for any
+                        particular purpose.
+                    </p>
+
+                    <p class="legal-heading">4. No Endorsement</p>
+                    <p>
+                        References to iwi, hapū, organisations, or external resources do not imply endorsement of the
+                        App or its content by those parties, unless explicitly stated.
+                    </p>
+
+                    <p class="legal-heading">5. Contact &amp; Corrections</p>
+                    <p>
+                        If you are a Māori language expert, cultural practitioner, or community member and you notice
+                        something that could be improved, please reach out. We welcome respectful corrections and
+                        collaboration.
+                    </p>
+                    <p>
+                        Email:
+                        <a href="mailto:tereotime@pinged.nz">tereotime@pinged.nz</a>
+                    </p>
+
+                    <p class="footer-note">
+                        By using Te Reo Time, you acknowledge that the App is an evolving educational project and may
+                        be updated over time as we refine language, content, and cultural guidance.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Links & Implementation -->
+            <section class="card">
+                <div class="card-header-row">
+                    <div class="card-title-block">
+                        <div class="card-icon">
+                            <!-- Link icon -->
+                            <svg width="22" height="22" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l2-2a5 5 0 0 0-7.07-7.07l-1.2 1.2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-2 2a5 5 0 1 0 7.07 7.07l1.2-1.2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="card-title">Links &amp; Implementation</div>
+                            <div class="card-subtitle">How to use this page</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>
+                        You can save this file as
+                        <span class="code-pill">/TeReoTime/privacy.html</span>
+                        (or
+                        <span class="code-pill">/TeReoTime/legal.html</span>)
+                        on your
+                        <strong>https://pinged.nz/TeReoTime/</strong> site and:
+                    </p>
+                    <ul>
+                        <li>Link to it from the Te Reo Time landing page footer as “Privacy &amp; Terms”</li>
+                        <li>Add the same URL into the Google Play Console as your privacy policy link</li>
+                        <li>Use the email <strong>tereotime@pinged.nz</strong> as the contact for privacy and legal enquiries</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+</body>
+</html>
